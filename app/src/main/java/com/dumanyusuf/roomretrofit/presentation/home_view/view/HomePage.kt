@@ -2,6 +2,7 @@ package com.dumanyusuf.roomretrofit.presentation.home_view.view
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -25,14 +26,19 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
+import com.dumanyusuf.roomretrofit.Screen
 import com.dumanyusuf.roomretrofit.presentation.home_view.HomeViewModel
+import com.google.gson.Gson
 import kotlinx.coroutines.awaitAll
+import java.net.URLEncoder
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun HomePage(
+    navController: NavController,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     val state = viewModel.state.collectAsState().value
@@ -77,7 +83,11 @@ fun HomePage(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(10.dp)
-                                    .size(150.dp)
+                                    .size(150.dp).clickable {
+                                        val wallpaperObject = Gson().toJson(flag)
+                                        val encodedWallpaperObject = URLEncoder.encode( wallpaperObject,"UTF-8")
+                                        navController.navigate("${Screen.DetailPageView.route}/$encodedWallpaperObject")
+                                    }
                             ) {
                                 Row(
                                     modifier = Modifier.fillMaxWidth(),

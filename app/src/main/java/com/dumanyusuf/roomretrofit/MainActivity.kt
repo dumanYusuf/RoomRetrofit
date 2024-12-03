@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.dumanyusuf.roomretrofit.presentation.home_view.view.HomePage
+import com.dumanyusuf.roomretrofit.presentation.navigation.PageController
 import com.dumanyusuf.roomretrofit.ui.theme.RoomRetrofitTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,7 +27,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             RoomRetrofitTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) {
-                    HomePage()
+                    PageController()
                 }
             }
         }
