@@ -8,5 +8,4 @@ data class Flag(
     val flag: String,
     val language: String,
 
-
 )

@@ -1,10 +1,9 @@
 package com.dumanyusuf.roomretrofit.domain.repo
 
-import com.dumanyusuf.roomretrofit.data.remote.dto.FlagDto
-
+import com.dumanyusuf.roomretrofit.domain.model.Flag
+import com.dumanyusuf.roomretrofit.util.Resource
+import kotlinx.coroutines.flow.Flow
 
 interface FlagRepo {
-
-    suspend fun getFlagList():FlagDto
-
+    fun getFlags(): Flow<Resource<List<Flag>>>
 }

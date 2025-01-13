@@ -52,6 +52,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.runtime.livedata)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -104,6 +105,12 @@ dependencies {
     // Coroutine Lifecycle Scopes
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4")
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
+
+
+    // livedata
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.8.7")
+
+
 
 
 
